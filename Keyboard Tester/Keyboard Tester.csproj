@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Untitled-design-_3_.ico</ApplicationIcon>
+    <ApplicationIcon>icons8-keyboard-60.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -93,6 +93,8 @@
     <None Include="Resources\icons8-github-500 .png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icons8-keyboard-60.ico" />
+    <None Include="Resources\icons8-youtube-240.png" />
     <Content Include="Untitled-design-_3_.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

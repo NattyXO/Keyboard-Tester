@@ -260,5 +260,76 @@ namespace Keyboard_Tester
 
             Process.Start(githublink);
         }
+
+        private void picYoutube_Click(object sender, EventArgs e)
+        {
+            string youtubelink = "https://www.youtube.com/@AhaduTech";
+
+            Process.Start(youtubelink);
+        }
+        private void ShowHelpMessage()
+        {
+            string helpMessage = "Key Combinations:\n\n" +
+                                 "Ctrl + Enter:\n  - Result: Normal Enter\n  - Description: Pressing Ctrl and Enter simultaneously will simulate a regular Enter key press.\n\n" +
+                                 "Alt + Enter:\n  - Result: Numpad Enter\n  - Description: Pressing Alt and Enter simultaneously will simulate a Numpad Enter key press.\n\n" +
+                                 "Shift + Ctrl:\n  - Result: Right Ctrl\n  - Description: Pressing Shift and Ctrl simultaneously will simulate a press of the right Ctrl key.\n\n" +
+                                 "Ctrl + Shift:\n  - Result: Right Shift\n  - Description: Pressing Ctrl and Shift simultaneously will simulate a press of the right Shift key.\n\n" +
+                                 "Note: These key combinations are specific to this Keyboard Tester application and may not have the same effect in other contexts.\n\n" +
+                                 "Thank you for using Keyboard Tester!";
+
+            MessageBox.Show(helpMessage, "Keyboard Tester Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowHelpMessage();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void ResetAllKeyColors()
+        {
+            // Reset the color of all buttons to white
+            foreach (Control control in this.Controls)
+            {
+                if (control is Button)
+                {
+                    ((Button)control).BackColor = Color.White;
+                }
+            }
+
+            btnWINDOW.BackColor = Color.White;
+            btnMenu.BackColor = Color.White;
+            // btnSpecial.BackColor = SystemColors.Control;
+        }
+        private void resetAllKeyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ResetAllKeyColors();
+        }
+
+        private void runAllTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Iterate through all keys and simulate key presses
+            for (int keyCode = 0; keyCode < 256; keyCode++)
+            {
+                char keyChar = (char)keyCode;
+
+                // Handle special characters
+                string keyToSend = keyChar.ToString();
+                if (keyChar == '{' || keyChar == '}' || keyChar == '(' || keyChar == ')' || keyChar == '%' || keyChar == '+' || keyChar == '^')
+                {
+                    keyToSend = "{" + keyChar + "}";
+                }
+
+                SendKeys.Send(keyToSend);
+            }
+
+            // Wait for a moment to observe the visual changes
+            System.Threading.Thread.Sleep(1000);
+
+            // Reset all key colors after the test
+            ResetAllKeyColors();
+        }
     }
 }

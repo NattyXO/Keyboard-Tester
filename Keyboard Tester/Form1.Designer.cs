@@ -132,15 +132,20 @@ namespace Keyboard_Tester
             this.btnDOWN = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.picYoutube = new System.Windows.Forms.PictureBox();
             this.picGithub = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.btnWINDOW = new System.Windows.Forms.PictureBox();
+            this.resetAllKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runAllTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picYoutube)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGithub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnWINDOW)).BeginInit();
@@ -1350,7 +1355,7 @@ namespace Keyboard_Tester
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.viewToolStripMenuItem,
+            this.testToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -1360,28 +1365,34 @@ namespace Keyboard_Tester
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resetAllKeyToolStripMenuItem,
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // viewToolStripMenuItem
+            // testToolStripMenuItem
             // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
+            this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runAllTestToolStripMenuItem});
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.testToolStripMenuItem.Text = "Test";
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Lime;
-            this.label1.Location = new System.Drawing.Point(731, 24);
+            this.label1.Location = new System.Drawing.Point(351, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 16);
             this.label1.TabIndex = 106;
@@ -1392,7 +1403,7 @@ namespace Keyboard_Tester
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(887, 24);
+            this.label2.Location = new System.Drawing.Point(501, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(143, 16);
             this.label2.TabIndex = 107;
@@ -1403,17 +1414,29 @@ namespace Keyboard_Tester
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1055, 24);
+            this.label3.Location = new System.Drawing.Point(663, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 16);
             this.label3.TabIndex = 108;
             this.label3.Text = "White: its not clicked";
             // 
+            // picYoutube
+            // 
+            this.picYoutube.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picYoutube.Image = global::Keyboard_Tester.Properties.Resources.icons8_youtube_240;
+            this.picYoutube.Location = new System.Drawing.Point(548, 372);
+            this.picYoutube.Name = "picYoutube";
+            this.picYoutube.Size = new System.Drawing.Size(37, 27);
+            this.picYoutube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picYoutube.TabIndex = 112;
+            this.picYoutube.TabStop = false;
+            this.picYoutube.Click += new System.EventHandler(this.picYoutube_Click);
+            // 
             // picGithub
             // 
             this.picGithub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picGithub.Image = global::Keyboard_Tester.Properties.Resources.icons8_github_500_;
-            this.picGithub.Location = new System.Drawing.Point(1058, 376);
+            this.picGithub.Location = new System.Drawing.Point(504, 372);
             this.picGithub.Name = "picGithub";
             this.picGithub.Size = new System.Drawing.Size(37, 27);
             this.picGithub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1443,12 +1466,34 @@ namespace Keyboard_Tester
             this.btnWINDOW.TabIndex = 109;
             this.btnWINDOW.TabStop = false;
             // 
+            // resetAllKeyToolStripMenuItem
+            // 
+            this.resetAllKeyToolStripMenuItem.Name = "resetAllKeyToolStripMenuItem";
+            this.resetAllKeyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resetAllKeyToolStripMenuItem.Text = "Reset all Key";
+            this.resetAllKeyToolStripMenuItem.Click += new System.EventHandler(this.resetAllKeyToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // runAllTestToolStripMenuItem
+            // 
+            this.runAllTestToolStripMenuItem.Name = "runAllTestToolStripMenuItem";
+            this.runAllTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.runAllTestToolStripMenuItem.Text = "Run All Test";
+            this.runAllTestToolStripMenuItem.Click += new System.EventHandler(this.runAllTestToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1214, 411);
+            this.ClientSize = new System.Drawing.Size(1214, 404);
+            this.Controls.Add(this.picYoutube);
             this.Controls.Add(this.picGithub);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnWINDOW);
@@ -1567,6 +1612,7 @@ namespace Keyboard_Tester
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picYoutube)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGithub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnWINDOW)).EndInit();
@@ -1679,7 +1725,7 @@ namespace Keyboard_Tester
         private System.Windows.Forms.Button btnDOWN;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -1687,6 +1733,10 @@ namespace Keyboard_Tester
         private System.Windows.Forms.PictureBox btnWINDOW;
         private System.Windows.Forms.PictureBox btnMenu;
         private System.Windows.Forms.PictureBox picGithub;
+        private System.Windows.Forms.PictureBox picYoutube;
+        private System.Windows.Forms.ToolStripMenuItem resetAllKeyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem runAllTestToolStripMenuItem;
     }
 }
 
