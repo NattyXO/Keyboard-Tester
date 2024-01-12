@@ -8,3 +8,6 @@ C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.csproj.G
 C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.csproj.CoreCompileInputs.cache
 C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.exe
 C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.pdb
+C:\Users\NattyXO\source\repos\Keyboard Tester\bin\Debug\WindowsInput.dll
+C:\Users\NattyXO\source\repos\Keyboard Tester\bin\Debug\WindowsInput.xml
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.csproj.CopyComplete

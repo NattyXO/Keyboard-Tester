@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using WindowsInput;
+using WindowsInput.Native;
 
 namespace Keyboard_Tester
 {
@@ -35,7 +32,7 @@ namespace Keyboard_Tester
         {
             this.Activate();
             //this.Focus();
-            
+
             this.KeyPreview = true;
 
             // Call the method to remove focus from all controls
@@ -50,7 +47,7 @@ namespace Keyboard_Tester
         {
             pic.BackColor = isPressed ? Color.Lime : SystemColors.Control;
         }
-       
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -77,7 +74,7 @@ namespace Keyboard_Tester
                 }
             }
 
-           
+
             switch (e.KeyCode)
             {
                 case Keys.ControlKey:
@@ -94,7 +91,7 @@ namespace Keyboard_Tester
                     }
                     break;
                 case Keys.ShiftKey:
-                    
+
                     if ((e.Modifiers & Keys.Control) == Keys.Control)
                     {
                         // Right shift key is pressed
@@ -130,7 +127,7 @@ namespace Keyboard_Tester
                 case Keys.RWin:
                     e.SuppressKeyPress = true; // Prevent default navigation behavior
                     ChangePicColor(btnWINDOW, true);
-                    
+
                     break;
                 case Keys.Apps:
                     ChangePicColor(btnMenu, true);
@@ -202,7 +199,7 @@ namespace Keyboard_Tester
                     ChangeButtonColor(btnNumPadPeriod, true);
                     break;
                 case Keys.Enter:
-                   if ((e.Modifiers & Keys.Control) == Keys.Control)
+                    if ((e.Modifiers & Keys.Control) == Keys.Control)
                     {
                         ChangeButtonColor(btnENTER, true);
                     }
@@ -211,8 +208,8 @@ namespace Keyboard_Tester
                         ChangeButtonColor(btnNumPadEnter, true);
                     }
                     break;
-                
-                   
+
+
                 // Add more cases for other keys...
 
                 default:
@@ -275,6 +272,7 @@ namespace Keyboard_Tester
                                  "Shift + Ctrl:\n  - Result: Right Ctrl\n  - Description: Pressing Shift and Ctrl simultaneously will simulate a press of the right Ctrl key.\n\n" +
                                  "Ctrl + Shift:\n  - Result: Right Shift\n  - Description: Pressing Ctrl and Shift simultaneously will simulate a press of the right Shift key.\n\n" +
                                  "Note: These key combinations are specific to this Keyboard Tester application and may not have the same effect in other contexts.\n\n" +
+                                 "prt sc and fn key is not supported for this version.\n\n" +
                                  "Thank you for using Keyboard Tester!";
 
             MessageBox.Show(helpMessage, "Keyboard Tester Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -310,26 +308,86 @@ namespace Keyboard_Tester
 
         private void runAllTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Iterate through all keys and simulate key presses
-            for (int keyCode = 0; keyCode < 256; keyCode++)
+            // Iterate through all alphanumeric keys and simulate key press
+            for (char key = 'A'; key <= 'Z'; key++)
             {
-                char keyChar = (char)keyCode;
-
-                // Handle special characters
-                string keyToSend = keyChar.ToString();
-                if (keyChar == '{' || keyChar == '}' || keyChar == '(' || keyChar == ')' || keyChar == '%' || keyChar == '+' || keyChar == '^')
-                {
-                    keyToSend = "{" + keyChar + "}";
-                }
-
-                SendKeys.Send(keyToSend);
+                SendKeys.SendWait(key.ToString());
             }
 
+            for (char key = '0'; key <= '9'; key++)
+            {
+                SendKeys.SendWait(key.ToString());
+            }
+
+            // Simulate key presses for other keys if needed
+
+            SendKeys.SendWait("{F1}");
+            SendKeys.SendWait("{F2}");
+            SendKeys.SendWait("{F3}");
+            SendKeys.SendWait("{F4}");
+            SendKeys.SendWait("{F5}");
+            SendKeys.SendWait("{F6}");
+            SendKeys.SendWait("{F7}");
+            SendKeys.SendWait("{F8}");
+            SendKeys.SendWait("{F9}");
+            SendKeys.SendWait("{F10}");
+            SendKeys.SendWait("{F11}");
+            SendKeys.SendWait("{F12}");
+            //Delete, Backspace, Space, Home, End
+
+            SendKeys.SendWait("{HOME}");
+            SendKeys.SendWait("{END}");
+
+            SendKeys.SendWait("{Down}");
+            SendKeys.SendWait("{Up}");
+            SendKeys.SendWait("{Right}");
+            SendKeys.SendWait("{Left}");
+            SendKeys.SendWait("{Add}");
+            SendKeys.SendWait("."); // for dot
+            SendKeys.SendWait(",");
+            SendKeys.SendWait("/");
+            SendKeys.SendWait("{PGUP}");
+            SendKeys.SendWait("{PGDN}");
+            SendKeys.SendWait("{NUMLOCK}");
+            SendKeys.SendWait(";");
+            SendKeys.SendWait("'");
+            SendKeys.SendWait("[");
+            SendKeys.SendWait("]");
+            SendKeys.SendWait(@"\"); //for backslash
+            SendKeys.SendWait("=");
+            SendKeys.SendWait("-");
+            SendKeys.SendWait("/");
+            SendKeys.SendWait("*");
+            SendKeys.SendWait("-");
+            SendKeys.SendWait("+");
+            SendKeys.SendWait(".");
+            SendKeys.SendWait("`");
+            SendKeys.SendWait("%{ENTER}");
+            SendKeys.SendWait("^+"); // Right Ctrl key is pressed
+            SendKeys.SendWait("^"); // Left Ctrl key is pressed
+            SendKeys.SendWait("+^"); // Right Shift key is pressed
+            SendKeys.SendWait("%+"); // Right Alt key is pressed
+            SendKeys.SendWait("{ESC}");
+            SendKeys.SendWait("{INSERT}");
+            SendKeys.SendWait("{DELETE}");
+            SendKeys.SendWait("{TAB}");
+
+            MessageBox.Show("This is an automatic test for some keyboards.\nIf some keyboard keys are left, manually click them.");
+            /*
+             SendKeys.SendWait("{PRTSC}"); // it doesnt work
+            SendKeys.SendWait("+"); // Left Shift key is pressed
+            
+            SendKeys.SendWait("{Menu}");
+            
+            SendKeys.SendWait("{ESC}");
+          
+              */
+
             // Wait for a moment to observe the visual changes
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(1500);
 
             // Reset all key colors after the test
-            ResetAllKeyColors();
+            //ResetAllKeyColors();
         }
     }
 }
