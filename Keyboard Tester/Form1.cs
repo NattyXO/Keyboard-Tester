@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Keyboard_Tester
@@ -125,7 +124,6 @@ namespace Keyboard_Tester
                 case Keys.RWin:
                     e.SuppressKeyPress = true; // Prevent default navigation behavior
                     ChangePicColor(btnWINDOW, true);
-
                     break;
                 case Keys.Apps:
                     ChangePicColor(btnMenu, true);
@@ -206,14 +204,9 @@ namespace Keyboard_Tester
                         ChangeButtonColor(btnNumPadEnter, true);
                     }
                     break;
-
-
-                // Add more cases for other keys...
-
                 default:
                     break;
             }
-
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -244,23 +237,7 @@ namespace Keyboard_Tester
                 return true; // Suppress default behavior
             }
 
-            // Add more key checks and custom behaviors...
-
             return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void picGithub_Click(object sender, EventArgs e)
-        {
-            string githublink = "https://github.com/NattyXO/Keyboard-Tester";
-
-            Process.Start(githublink);
-        }
-
-        private void picYoutube_Click(object sender, EventArgs e)
-        {
-            string youtubelink = "https://www.youtube.com/@AhaduTech";
-
-            Process.Start(youtubelink);
         }
         private void ShowHelpMessage()
         {
@@ -279,14 +256,12 @@ namespace Keyboard_Tester
         {
             ShowHelpMessage();
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
         private void ResetAllKeyColors()
         {
-            // Reset the color of all buttons to white
             foreach (Control control in this.Controls)
             {
                 if (control is Button)
@@ -294,16 +269,13 @@ namespace Keyboard_Tester
                     ((Button)control).BackColor = Color.White;
                 }
             }
-
             btnWINDOW.BackColor = Color.White;
             btnMenu.BackColor = Color.White;
-            // btnSpecial.BackColor = SystemColors.Control;
         }
         private void resetAllKeyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResetAllKeyColors();
         }
-
         private void runAllTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Iterate through all alphanumeric keys and simulate key press
@@ -316,9 +288,7 @@ namespace Keyboard_Tester
             {
                 SendKeys.SendWait(key.ToString());
             }
-
             // Simulate key presses for other keys if needed
-
             SendKeys.SendWait("{F1}");
             SendKeys.SendWait("{F2}");
             SendKeys.SendWait("{F3}");
@@ -332,10 +302,8 @@ namespace Keyboard_Tester
             SendKeys.SendWait("{F11}");
             SendKeys.SendWait("{F12}");
             //Delete, Backspace, Space, Home, End
-
             SendKeys.SendWait("{HOME}");
             SendKeys.SendWait("{END}");
-
             SendKeys.SendWait("{Down}");
             SendKeys.SendWait("{Up}");
             SendKeys.SendWait("{Right}");
@@ -370,7 +338,7 @@ namespace Keyboard_Tester
             SendKeys.SendWait("{DELETE}");
             SendKeys.SendWait("{TAB}");
 
-            MessageBox.Show("This is an automatic test for some keyboards.\nIf some keyboard keys are left, manually click them.");
+            MessageBox.Show("This is an automatic test for some keys.\nThis checks for the driver working not the physical button.\nIf some keyboard keys are left, manually click them.");
             /*
              SendKeys.SendWait("{PRTSC}"); // it doesnt work
             SendKeys.SendWait("+"); // Left Shift key is pressed
@@ -386,6 +354,18 @@ namespace Keyboard_Tester
 
             // Reset all key colors after the test
             //ResetAllKeyColors();
+        }
+        private void picGithub_Click(object sender, EventArgs e)
+        {
+            string githublink = "https://github.com/NattyXO/Keyboard-Tester";
+
+            Process.Start(githublink);
+        }
+        private void picYoutube_Click(object sender, EventArgs e)
+        {
+            string youtubelink = "https://www.youtube.com/@AhaduTech";
+
+            Process.Start(youtubelink);
         }
     }
 }
