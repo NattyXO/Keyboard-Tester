@@ -3,8 +3,6 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using WindowsInput;
-using WindowsInput.Native;
 
 namespace Keyboard_Tester
 {
