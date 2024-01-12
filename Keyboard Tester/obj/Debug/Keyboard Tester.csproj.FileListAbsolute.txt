@@ -1,0 +1,10 @@
+C:\Users\NattyXO\source\repos\Keyboard Tester\bin\Debug\Keyboard Tester.exe.config
+C:\Users\NattyXO\source\repos\Keyboard Tester\bin\Debug\Keyboard Tester.exe
+C:\Users\NattyXO\source\repos\Keyboard Tester\bin\Debug\Keyboard Tester.pdb
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.csproj.AssemblyReference.cache
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard_Tester.Form1.resources
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard_Tester.Properties.Resources.resources
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.csproj.GenerateResource.cache
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.csproj.CoreCompileInputs.cache
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.exe
+C:\Users\NattyXO\source\repos\Keyboard Tester\obj\Debug\Keyboard Tester.pdb
