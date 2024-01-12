@@ -73,6 +73,16 @@ namespace Keyboard_Tester.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_github_500_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-github-500 ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap window_system {
             get {
                 object obj = ResourceManager.GetObject("window-system", resourceCulture);

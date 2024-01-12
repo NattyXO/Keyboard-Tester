@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,8 +37,6 @@ namespace Keyboard_Tester
             //this.Focus();
             
             this.KeyPreview = true;
-            this.PreviewKeyDown += Form1_PreviewKeyDown;
-            this.KeyUp += Form1_KeyUp;
 
             // Call the method to remove focus from all controls
             RemoveFocusFromAllControls();
@@ -51,6 +50,8 @@ namespace Keyboard_Tester
         {
             pic.BackColor = isPressed ? Color.Lime : SystemColors.Control;
         }
+       
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             // Show a popup with the name of the pressed key
@@ -80,13 +81,43 @@ namespace Keyboard_Tester
             switch (e.KeyCode)
             {
                 case Keys.ControlKey:
-                    ChangeButtonColor(btnCTRLLEFT, true);
+                    // Check if the right Ctrl key is pressed
+                    if ((e.Modifiers & Keys.Shift) == Keys.Shift)
+                    {
+                        // Right Ctrl key is pressed
+                        ChangeButtonColor(btnCTRLRIGHT, true);
+                    }
+                    else
+                    {
+                        // Left Ctrl key is pressed
+                        ChangeButtonColor(btnCTRLLEFT, true);
+                    }
                     break;
                 case Keys.ShiftKey:
-                    ChangeButtonColor(btnSHIFTLEFT, true);
+                    
+                    if ((e.Modifiers & Keys.Control) == Keys.Control)
+                    {
+                        // Right shift key is pressed
+                        ChangeButtonColor(btnSHIFTRIGHT, true);
+                    }
+                    else
+                    {
+                        // Left shift key is pressed
+                        ChangeButtonColor(btnSHIFTLEFT, true);
+                    }
                     break;
                 case Keys.Menu:
-                    ChangeButtonColor(btnALTRIGHT, true);
+                    // Check if the right Ctrl key is pressed
+                    if ((e.Modifiers & Keys.Shift) == Keys.Shift)
+                    {
+                        // Right Ctrl key is pressed
+                        ChangeButtonColor(btnALTRIGHT, true);
+                    }
+                    else
+                    {
+                        // Left Ctrl key is pressed
+                        ChangeButtonColor(btnALTLEFT, true);
+                    }
                     break;
                 case Keys.CapsLock:
                     ChangeButtonColor(btnCAPSLOCK, Control.IsKeyLocked(Keys.CapsLock));
@@ -97,7 +128,9 @@ namespace Keyboard_Tester
                     break;
                 case Keys.LWin:
                 case Keys.RWin:
+                    e.SuppressKeyPress = true; // Prevent default navigation behavior
                     ChangePicColor(btnWINDOW, true);
+                    
                     break;
                 case Keys.Apps:
                     ChangePicColor(btnMenu, true);
@@ -153,18 +186,6 @@ namespace Keyboard_Tester
                 case Keys.Back:
                     ChangeButtonColor(btnBACKSPACE, true);
                     break;
-                case Keys.Up:
-                    ChangeButtonColor(btnUP, true);
-                    break;
-                case Keys.Down:
-                    ChangeButtonColor(btnDOWN, true);
-                    break;
-                case Keys.Right:
-                    ChangeButtonColor(btnRIGHT, true);
-                    break;
-                case Keys.Left:
-                    ChangeButtonColor(btnLEFT, true);
-                    break;
                 case Keys.Divide:
                     ChangeButtonColor(btnNumPadDivision, true);
                     break;
@@ -180,6 +201,18 @@ namespace Keyboard_Tester
                 case Keys.Decimal:
                     ChangeButtonColor(btnNumPadPeriod, true);
                     break;
+                case Keys.Enter:
+                   if ((e.Modifiers & Keys.Control) == Keys.Control)
+                    {
+                        ChangeButtonColor(btnENTER, true);
+                    }
+                    else if ((e.Modifiers & Keys.Alt) == Keys.Alt)
+                    {
+                        ChangeButtonColor(btnNumPadEnter, true);
+                    }
+                    break;
+                
+                   
                 // Add more cases for other keys...
 
                 default:
@@ -187,15 +220,45 @@ namespace Keyboard_Tester
             }
 
         }
-
-        private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            // Check if Tab key is pressed
+            if (keyData == Keys.Tab)
+            {
+                ChangeButtonColor(btnTAB, true);
+                return true; // Suppress default behavior
+            }
+            if (keyData == Keys.Left)
+            {
+                ChangeButtonColor(btnLEFT, true);
+                return true; // Suppress default behavior
+            }
+            if (keyData == Keys.Up)
+            {
+                ChangeButtonColor(btnUP, true);
+                return true; // Suppress default behavior
+            }
+            if (keyData == Keys.Down)
+            {
+                ChangeButtonColor(btnDOWN, true);
+                return true; // Suppress default behavior
+            }
+            if (keyData == Keys.Right)
+            {
+                ChangeButtonColor(btnRIGHT, true);
+                return true; // Suppress default behavior
+            }
 
+            // Add more key checks and custom behaviors...
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        private void picGithub_Click(object sender, EventArgs e)
         {
+            string githublink = "https://github.com/NattyXO/Keyboard-Tester";
 
+            Process.Start(githublink);
         }
     }
 }

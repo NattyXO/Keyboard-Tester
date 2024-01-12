@@ -29,6 +29,7 @@ namespace Keyboard_Tester
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnESC = new System.Windows.Forms.Button();
             this.btnF1 = new System.Windows.Forms.Button();
             this.btnF3 = new System.Windows.Forms.Button();
@@ -136,9 +137,11 @@ namespace Keyboard_Tester
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.picGithub = new System.Windows.Forms.PictureBox();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.btnWINDOW = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGithub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnWINDOW)).BeginInit();
             this.SuspendLayout();
@@ -1406,6 +1409,18 @@ namespace Keyboard_Tester
             this.label3.TabIndex = 108;
             this.label3.Text = "White: its not clicked";
             // 
+            // picGithub
+            // 
+            this.picGithub.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picGithub.Image = global::Keyboard_Tester.Properties.Resources.icons8_github_500_;
+            this.picGithub.Location = new System.Drawing.Point(1058, 376);
+            this.picGithub.Name = "picGithub";
+            this.picGithub.Size = new System.Drawing.Size(37, 27);
+            this.picGithub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picGithub.TabIndex = 111;
+            this.picGithub.TabStop = false;
+            this.picGithub.Click += new System.EventHandler(this.picGithub_Click);
+            // 
             // btnMenu
             // 
             this.btnMenu.BackColor = System.Drawing.Color.White;
@@ -1434,6 +1449,7 @@ namespace Keyboard_Tester
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1214, 411);
+            this.Controls.Add(this.picGithub);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnWINDOW);
             this.Controls.Add(this.label3);
@@ -1540,6 +1556,7 @@ namespace Keyboard_Tester
             this.Controls.Add(this.btnF1);
             this.Controls.Add(this.btnESC);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(1253, 450);
@@ -1548,10 +1565,9 @@ namespace Keyboard_Tester
             this.Text = "Keyboard Tester";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGithub)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnWINDOW)).EndInit();
             this.ResumeLayout(false);
@@ -1670,6 +1686,7 @@ namespace Keyboard_Tester
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox btnWINDOW;
         private System.Windows.Forms.PictureBox btnMenu;
+        private System.Windows.Forms.PictureBox picGithub;
     }
 }
 
