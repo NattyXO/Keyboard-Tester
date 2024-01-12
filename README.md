@@ -13,8 +13,8 @@ Keyboard Tester is a simple Windows Forms application that allows users to test 
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/NattyXO/Keyboard-Tester\blob/main/UI1Keyboard.png)
-![Screenshot 2](https://github.com/NattyXO/Keyboard-Tester\blob/main/UI2Keyboard.png)
+![Screenshot 1](https://github.com/NattyXO/Keyboard-Tester/blob/main/UI1Keyboard.png)
+![Screenshot 2](https://github.com/NattyXO/Keyboard-Tester/blob/main/UI2Keyboard.png)
 
 
 ## Getting Started
